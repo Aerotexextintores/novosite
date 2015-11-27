@@ -1,0 +1,22 @@
+.price_filter{
+	height: 5px;
+	background: #ccc;
+	padding-top: 1px;
+	margin: 10px 0;
+}
+.price_filter .price-from ,
+.price_filter .price-to {
+    height: 17px;
+    width: 10px;
+    cursor: e-resize;
+    display: block;
+	margin-top: -6px;
+	background: #777;
+}
+.price_filter .price-to {
+    cursor: w-resize;
+    margin-top: -17px;
+}
+#price-filter-max-display{
+	float: right;
+}

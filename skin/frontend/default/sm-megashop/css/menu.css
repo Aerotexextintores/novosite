@@ -1,0 +1,161 @@
+/********** < Navigation */
+
+#nav { width:100%; float: left; }
+
+/* All Levels */ /* Style consistent throughout all nav levels */
+
+#nav li { position:relative; text-align:left;  margin-right: 1px; }
+#nav li:hover{ }
+#nav li.over { z-index:999999; }
+#nav a{ display: block;}
+#nav > li.active > a > span:before{
+	 color: #fff!important; 
+}
+#nav li.last a{
+	border-bottom: none;
+}
+
+#nav > li > a{ position: relative; }
+#nav > li > a:before,
+#nav > li.active > a:before,
+#nav > li.parent > a:before{
+	position: absolute; width: 0;
+	height: 3px; background: #3ab54a;
+	top: 0; left: 0; content: "";
+}
+#nav > li.active > a:before,
+#nav > li.parent:hover > a:before,
+#nav > li > a:hover:before{
+	width: 100%;
+	-moz-transition: all 0.3s ease-in-out 0s;
+	-webkit-transition: all 0.3s ease-in-out 0s;
+	transition: all 0.3s ease-in-out 0s;
+}
+#nav > li.over > a > span{
+	color: #3ab54a;
+}
+#nav > li.parent.active > a:after,
+#nav > li.parent > a:hover:after,
+#nav > li.parent.over > a:after{
+	position: absolute; width: 10px;
+	height: 20px; background: url(../images/mega_i.png) no-repeat -28px -104px;
+	bottom: -13px; left: 50%; content: "";
+}
+#nav > li > a.over,
+#nav > li > a.over span:before,
+#nav > li > a:hover { }
+#nav span { display:block; cursor:pointer; white-space:nowrap; }
+#nav li ul span {white-space:normal;  }
+#nav > li.parent > a > span{ padding: 0 15px !important; position: relative; }
+#nav > li > a > span{ line-height: 80px;  }
+/*#nav > li.parent > a > span:before{
+	content: "\f107"; font-family: "Fontawesome"; font-size: 16px; color: #bababa;
+	position: absolute;
+	top: 50%; margin-top: -7px; right: 16px; float: left;
+	width: 10px; height: 10px; line-height: 100%;
+}*/
+
+#nav ul {
+	background: #fff;
+}
+#nav ul li{
+	padding:  0 10px;
+}
+#nav ul li:hover{}
+#nav ul li:hover a{ }
+#nav ul li.parent li a { }
+
+/* 0 Level */
+#nav > li > a > span{ font-size: 116.66%; }
+
+#nav li { float:left; }
+#nav > li.active > a { }
+#nav a span{ padding: 0 10px; }
+
+/* 1st Level */
+#nav ul li,
+#nav ul li.active { float:none; margin:0;  }
+#nav ul li.last { }
+#nav ul a{
+	 border-bottom: 1px solid #ddd;
+}
+#nav ul a,
+#nav ul a:hover { float:none; padding: 0 0 0 15px; background:none; }
+#nav ul li a { font-weight:normal !important; }
+#yt_header #nav ul li a span{
+	font-weight: 300 !important; position: relative;
+}
+#nav ul li.parent a span{
+	position: relative;
+}
+#nav ul li.parent > a > span:before{
+	content: "\f105"; font-family: "Fontawesome"; font-size: 14px; color: #818181;
+	position: absolute;
+	top: 50%; margin-top: -7px; right: 0px; float: left;
+	width: 10px; height: 10px; line-height: 100%;
+
+}
+#nav ul li.parent > a:hover > span:before{
+	color: #3ab54a;
+}
+#nav ul li > a > span:after{
+	content: ""; 
+	position: absolute;
+	top: 50%; margin-top: -5px; left: -11px; float: left;
+	width: 6px; height: 10px; line-height: 100%;
+	background: url(../images/mega_i.png) no-repeat -4px -2250px;
+}
+#nav ul li > a:hover > span:after{
+	background: url(../images/mega_i.png) no-repeat -13px -2250px;
+}
+/* 2nd Level */
+#nav ul,
+#nav div { 
+	position:absolute; z-index: 999999;
+	min-width:192px; top:80px; 
+	/*left:-10000px;*/
+	opacity: 0;
+	filter: alpha( opacity=0 ) ;
+	-moz-box-shadow: 1px 1px 2px #888;
+	-webkit-box-shadow: 1px 1px 2px #888;
+	box-shadow: 1px 1px 2px #888;
+	-ms-transform: scale(0); /* IE 9 */
+	-webkit-transform: scale(0); /* Chrome, Safari, Opera */
+	transform: scale(0);
+	-webkit-transition:all 0.3s ease-in-out 0s;
+	-moz-transition:all 0.3s ease-in-out 0s;
+	-o-transition:all 0.3s ease-in-out 0s;
+    -ms-transition:all 0.3s ease-in-out 0s;
+    border-top: 3px solid #3ab54a;
+}
+#nav div ul { position:static; width:auto; border:none; }
+
+/* 3rd+ Level */
+#nav ul ul,
+#nav ul div { top:0px; }
+
+#nav ul li a { }
+#nav ul li a:hover { }
+#nav ul li a,
+#nav ul li a:hover { }
+#nav ul span,
+#nav ul li.last li span { padding:0; line-height: 34px; }
+
+/* Show menu */
+#nav li ul.shown-sub,
+#nav li div.shown-sub { 
+	left:0; z-index:999999;
+	
+	-ms-transform: scale(1); /* IE 9 */
+	-webkit-transform: scale(1); /* Chrome, Safari, Opera */
+	transform: scale(1);
+
+	opacity: 1;
+	filter: alpha( opacity=100 ) ;
+
+ }
+#nav li .shown-sub ul.shown-sub,
+#nav li .shown-sub li div.shown-sub,
+#nav ul li.parent ul{ left:192px !important; }
+
+/********** Navigation > */

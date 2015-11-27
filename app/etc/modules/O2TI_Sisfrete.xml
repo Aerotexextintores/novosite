@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+
+<config>
+    <modules>
+        <O2TI_Sisfrete>
+            <active>true</active>
+            <codePool>local</codePool>
+        </O2TI_Sisfrete>
+    </modules>
+</config>

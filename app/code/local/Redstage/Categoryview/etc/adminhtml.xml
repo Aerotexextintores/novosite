@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<config>
+    <acl>
+      <resources>
+        <admin>
+          <children>
+            <system>
+              <children>
+                <config>
+                  <children>
+                    <categoryview translate="title" module="categoryview">
+                      <title>Category View</title>
+                    </categoryview>
+                  </children>
+                </config>
+              </children>
+            </system>
+          </children>
+        </admin>
+      </resources>
+    </acl>
+
+</config>

@@ -1,0 +1,59 @@
+
+.sm_quickview_handler {
+	/* background: url(../images/bg_quickview.png) no-repeat left center;
+	width: 120px;
+	height: 32px;
+	float: left;
+	text-indent: -999em; */
+	background: none repeat scroll 0 0 #3399CC;
+    border: 0 none;
+    color: #FFFFFF;
+    display: inline-block;
+    font-family: "Raleway","Helvetica Neue",Verdana,Arial,sans-serif;
+    font-size: 13px;
+    font-weight: normal;
+    line-height: 19px;
+    padding: 7px 15px;
+    text-align: center;
+    text-transform: uppercase;
+    vertical-align: middle;
+    white-space: nowrap;
+	text-decoration:none;
+	margin:10px 0;
+}
+
+.sm_quickview_handler:hover,
+.sm_quickview_handler:focus
+{
+	background: none repeat scroll 0 0 #2E8AB8
+    border: 0 none;
+    color: #FFFFFF;
+	text-decoration:none;	
+	cursor:pointer;
+}
+
+.sm_quickview_handler:focus{
+	outline:none outline;
+}
+
+.fancybox-lock .zoomContainer{
+	-webkit-transform:none!important;
+}
+
+.fancybox-lock .zoomContainer .zoomLens,
+.fancybox-lock .zoomContainer .zoomWindow {
+	z-index:8021!important;
+}
+
+.quickview-main .product-image-thumbs li:first-child{
+	margin-left:0;
+}
+
+
+.quickview-main .product-collateral{
+	display:none;
+}
+
+.products-list li.item .f-fix .sm_quickview_handler{
+	float:left;
+}

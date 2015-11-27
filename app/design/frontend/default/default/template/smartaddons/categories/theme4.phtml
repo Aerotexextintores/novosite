@@ -1,0 +1,140 @@
+<?php       
+/*------------------------------------------------------------------------
+ # SM Categories - Version 1.0
+ # Copyright (c) 2009-2011 YouTech Company. All Rights Reserved.
+ # @license - Copyrighted Commercial Software
+ # Author: YouTech Company
+ # Websites: http://www.smartaddons.com
+-------------------------------------------------------------------------*/
+?>
+<?php
+ $mid = rand().time();
+ $smarthelper= Mage::helper('categories/utils');
+ $items = $this->getCategory();
+ $config = $this->getConfigObject();
+ foreach ($config as $key => $value){
+	$$key = $value;	
+}
+ ?>
+<?php if($count_items = count($items)):?>
+	<?php echo $this->getScriptTags(); ?>
+	
+<style>
+    #yt_accordion<?php echo $mid;?> a{
+        display: block;
+    }
+</style>
+
+<script type="text/javascript">
+//<CDATA[[
+	$jsmart(document).ready(function($){
+    	// Setup HoverAccordion for Example 2 with some custom options
+    	
+    	$('#yt_accordion<?php echo $mid;?>').hoverAccordion({
+    		activateitem: '1',
+    		speed: 'fast',
+			action: '<?php echo $tab_event ;?>'
+    	});
+    	$('#yt_accordion<?php echo $mid;?>').children('li:first').addClass('firstitem');
+    	$('#yt_accordion<?php echo $mid;?>').children('li:last').addClass('lastitem');
+    });
+ //]]>
+</script>
+<div id="page-wrap" class="ymcategories">
+
+	<?php if (!empty($config['title'])): ?>
+	<div class="block-title" style="font-size: 16px; font-weight: bold;"><?php echo $config['title']; ?></div>
+	<?php endif; ?>
+	<!--Intro Text-->
+	<?php if($config['pretext']): ?>
+	<div style="text-align:left;">
+		<?php  echo $config['pretext'];?>
+	</div>
+	<br/>
+	<?php endif;?>
+	<!--End Intro Text-->
+	
+	<div id="ytc_tabs<?php echo $mid;?>" class="theme4" style="overflow: hidden">  
+    	<div class="box-wrapper">
+			<div class="normal_category" style="float: left; width:<?php echo ($config['category_sub_image_width'] + 150);?>px;">
+				<ul id="yt_accordion<?php echo $mid;?>" class="normal_content" style="width:<?php echo ($config['category_sub_image_width'] + 150);?>px; float:left;">
+				<?php 
+				//if(count($items)>0){
+					$j=0; 
+					foreach ($items as $key => $item){
+						$numChild = count($item['childs']);
+						$hasChild = $numChild>0;
+				?>	
+					<li class="normal_items" style="width:<?php echo ($config['category_sub_image_width'] + 150);?>px;">								
+						<a href="javascript:void(0)">
+							<div class="icon_left">&nbsp;&nbsp;&nbsp;</div>
+							<div class="title" style="color: <?php echo $config['category_title_color'];?>;">
+								<?php echo strtoupper($item['category_name']);?>
+							</div>
+							<div class="icon_right">&nbsp;&nbsp;&nbsp;</div>
+						</a>
+						
+					    <?php 
+					    if ($hasChild){					    	 
+					    	foreach ($item['childs'] as $child){
+					    		$config['category_sub_image_disp'] = (($config['category_sub_image_disp'] ==1) && !empty($child['category_thumb']));
+					    		$ulHeight = $config['category_sub_image_disp'] ? 'height:'.$config['category_sub_image_height'].'px;' : 'height:10px;';
+					    ?>					    	
+					    	<ul id="<?php echo $mid.$j;?>" class="normal_content_accor" style="<?php echo $ulHeight; ?>">								
+								<div style="width:<?php echo ($config['category_sub_image_width'] + 140);?>px; float: left">
+								<?php
+								if($config['category_sub_image_disp']){ ?>
+									<li style="float: left; margin-right: 10px">									
+									<?php if($config['category_sub_image_linkable']==1){?>
+									<a href="<?php echo $child['category_link']; ?>" <?php echo $smarthelper->getTargetAttr($config['product_links_target']); ?>>
+										<img src="<?php echo $child['category_thumb']; ?>" title="<?php echo $child['category_name']; ?>"/>
+									</a>
+									<?php } else { ?>
+										<img src="<?php echo $child['category_thumb']; ?>"/>
+									<?php } ?>		
+									</li>
+								<?php } ?>
+								
+								<?php if ($config['category_sub_title_disp']==1){ ?>
+									<li class="normal_desc">
+	                                	<div style="color:<?php echo $config['category_sub_title_color'];?>;">                                         
+	                                    <?php if($config['category_sub_title_linkable'] ==1) {?>        
+	                                    	<a style="font-weight: bold; background: none; color:<?php echo $config['category_sub_title_color']; ?>"; href="<?php echo $child['category_link']; ?>" <?php echo $smarthelper->getTargetAttr($config['product_links_target']); ?>><?php echo $child['category_name']; ?></a><br>                                                                         
+	                                    <?php } else {
+	                                   			echo $child['category_name']; 
+	                                    	}
+	                                    ?>                                     
+	                                    </div>	                                   
+									</li>
+									
+									<?php if ($config['show_total_articles']==1){ ?>
+									<li class="num_items" style="color: #737373; overflow: hidden;">
+										<?php echo '(' . $child['products'] . ')'; ?>
+									</li>									
+									<?php } ?>
+								<?php } ?>								
+								</div>								
+				  			</ul>	
+				  		<?php 
+					    	} // endforeach item child
+						} // end if hasChild
+						?>
+					</li>
+				<?php 
+					} // endforeach item
+				//} // end if has Item
+				?>
+			  	</ul>
+			</div>
+		</div> <!-- END Box Wrapper -->
+	</div> <!-- END ytc_tabs -->
+</div>
+<?php else: ?>
+<p class="note-msg"><?php echo $this->__('There are no products matching the selection.') . Mage::helper('categories')->__('Please choose a category for Smart Categories.') ?></p>
+<?php endif; ?>	
+<?php if($config['posttext']): ?>
+<br/>
+<div style="text-align:left">
+	<p><?php  echo $config['posttext'];?></p>
+</div>
+<?php endif;?>

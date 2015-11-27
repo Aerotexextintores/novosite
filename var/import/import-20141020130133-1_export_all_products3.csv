@@ -1,0 +1,98 @@
+"store","websites","attribute_set","type","category_ids","sku","has_options","name","meta_title","meta_description","image","small_image","thumbnail","url_key","url_path","country_of_manufacture","gift_message_available","price","special_price","weight","msrp","gift_wrapping_price","manufacturer","color","is_recurring","visibility","description","short_description","meta_keyword","custom_layout_update","special_from_date","special_to_date","news_from_date","news_to_date","custom_design_from","custom_design_to","qty","min_qty","use_config_min_qty","is_qty_decimal","backorders","use_config_backorders","min_sale_qty","use_config_min_sale_qty","max_sale_qty","use_config_max_sale_qty","is_in_stock","low_stock_date","notify_stock_qty","use_config_notify_stock_qty","manage_stock","use_config_manage_stock","stock_status_changed_auto","use_config_qty_increments","qty_increments","use_config_enable_qty_inc","enable_qty_increments","is_decimal_divided","stock_status_changed_automatically","use_config_enable_qty_increments","product_name","store_id","product_type_id","product_status_changed","product_changed_websites","custom_design","page_layout","options_container","msrp_enabled","msrp_display_actual_price_type","gift_wrapping_available","status","tax_class_id"
+"admin","base","Default","simple",42,"TI001",0,"Tanque Anti Explosão Quadrado de 1500 Litros - TI001",,,,,,"tanque-anti-explosao-quadrado-1500-litros","tanque-anti-explosao-quadrado-1500-litros.html",,"Não","25999.0000","22482.0000","3.0000",,,"Moto Striker ","Blue","Não","Não Visível Individualmente","TI001","Compatibilidade : Produtos líquidos não clorados, não corrosivos ao aço inoxidável 304, não perigosos ou
+perigosos dos Grupos de Embalagem II e III nas classes de risco 3 (inflamáveis) ou 6 (tóxicos).
+
+Capacidade nominal : 1.500 litros
+
+Material do corpo : Aço inoxidável AISI 304
+
+Dimensões ext. máximas : Cúbico
+
+Altura 1.615mm
+
+Largura 1.000mm (lado válvula)
+
+Profundidade 1.200mm
+
+Tara : 280 kg
+Peso bruto máximo : 2.530 kg
+
+Gaiola de sustentação : Não aplicável
+
+Boca de visita : Ø18” com tampa fechada por abraçadeira
+
+Enchimento : Bocal de Ø6” na tampa da boca de visita, com tampa de pressão.
+
+Esvaziamento : No fundo, válvula esfera Ø2”.
+
+Alívio de pressão : Válvula no topo abrindo a 3,0 psi
+
+Alívo de vácuo : Válvula no topo abrindo a (-) 0,5 psi
+
+Gaxetas de vedação : Standard em EPDM ou opcional em Viton, Teflon, etc.
+
+Acessórios Admissíveis : Misturadores, aquecimento p/ imersão, tubo pescador, bloqueadores umidade, etc.
+
+Uso de empilhadeira : Bolsas frontais para garfo ou por encaixe nas laterais.
+
+Uso de paleteira : Por encaixe nas laterais
+
+Içamento : Alças no topo
+
+Limite de empilhamento : Cheio 3 alturas
+
+Vazio 3 alturas (recomendado)
+
+Truck Load 2,40m X 7,00 m : Cheio 12 alturas (recomendado)
+
+Vazio 12 unidades
+
+Normas de projeto : ONU Recommendations on the Transport of Dangerous Goods 11° edição.
+
+Min. Transportes: Portaria 204 de 26/05/97.
+
+Resolução nº 420 de 12/02/2004 - A N T T.",,,"2014-10-17 00:00:00",,,,,,"0.0000","0.0000",1,0,0,1,"1.0000",1,"0.0000",1,0,"2014-10-17 20:25:41","0.0000",1,0,1,1,1,"0.0000",1,0,0,1,1,"Tanque Anti Explosão Quadrado de 1500 Litros - TI001",0,"simple",,,,"Nenhuma atualização de disposição (layout)","Bloco após Coluna de Informações","Use config","Use config","Não","Ativado","Nenhum"
+"admin","base","Default","simple",42,"BB001",0,"Bomba de Sistema de Incêndio Combustão- Gasolina, Etanol ou Diesel ( Vermelha )- BB001",,,,,,"produto-208","produto-1485.html",,"Não","0.0000",,"20.0000",,,"Moto Striker ","Blue","Não","Não Visível Individualmente","Bomba Dancor 7,5 CV 2 /12 Trifásico (40 MCA 270 LPM) Vermelha","Bombas Sistemas de combate a Incêndio, e sistemas auxiliares. 
+
+Bombas com motor à gasolina, etanol, diesel e a biodiesel com potências de até 420CV, sejam mono ou multiestágios. 
+
+Vazões para até 1.500m3/h e alturas manométricas de até 200mca. Tamanhos até DN250.
+
+Bombas com painel de acionamento e instrumentação automatizado para o uso correto e seguro.
+
+Pode ser usado em kit como Skid, no qual montamos o sistema pronto - Cavalete, Pressostatos, Quadros de Comando Automático, Jóquei, Eletrica principal e combustão.
+
+Podendo ser confeccionado nos modelos NBR e NFPA 
+
+Aplicações :
+
+Sistema de Incêndio Residenciais Multi-Familiares, Comercial e Industrial.
+
+Na cor Vermelha.",,,,,,,,,"100.0000","0.0000",1,0,0,1,"1.0000",1,"0.0000",1,1,,"0.0000",1,0,1,0,1,"0.0000",1,0,0,0,1,"Bomba de Sistema de Incêndio Combustão- Gasolina, Etanol ou Diesel ( Vermelha )- BB001",0,"simple",,,,"Nenhuma atualização de disposição (layout)","Bloco após Coluna de Informações","Use config","Use config","Não","Ativado","Nenhum"
+"admin","base","Default","simple",42,60174,0,"TESTE E MEDIÇÃO DE VAZÃO E PRESSÃO ESTÁTICA E DINÂMICA DE REDE HIDRÁULICA DE INCÊNDIO - EMISSAO LAUDO TÉCNICO  E ART DE PRESSÃO HIDRÁULICA ",,,,,,"teste-e-medicao-de-vaz-o-e-press-o-estatica-e-dinamica-de-rede-hidraulica-de-inc-ndio-emissao-laudo-tecnico-e-art-de-press-o-hidraulica","teste-e-medicao-de-vaz-o-e-press-o-estatica-e-dinamica-de-rede-hidraulica-de-inc-ndio-emissao-laudo-tecnico-e-art-de-press-o-hidraulica.html",,"Não","0.0000","0.0000","1.0000",,,"Moto Striker ","Blue","Não","Não Visível Individualmente","MEDIÇAO DE VAZÃO E PRESSÃO ESTÁTICA E DINÂMICA DE REDE HIDRÁULICA DE INCÊNDIO - EMISSAO LAUDO TÉCNICO  E ART DE PRESSÃO HIDRÁULICA - VALOR POR  PONTO DE MEDIÇÃO","Procedimento Fundamental para Seguradoras e Certificações Nacionais e Internacionais, essencial para confirmar o bom funcionamento de todos equipamentos de Combate a Incêndio do local, acompanhado de laudo evidencial de não-conformidades .
+
+Procedimento realizado por técnico habilitado, que apos a finalização acompanha Laudo( NFPA e/ou NBR) e ART dos serviços realizados, 
+
+Realizado normalmente em pontos mais distantes da linha hidráulica de proteção contra incêndio, podendo ser linha pressurizada ou não. 
+
+Indicado Para qualquer empresas independente da quantidade de equipamentos e ramo de atividade 
+
+Contrate Junto:
+
+ Testes de Funcionamento em Sistemas de Alarme de Incêndio, Detecção de Incêndio, botoeiras e detectores , Iluminação de Emergência, Sistema Hidráulico de Hidrantes e Sprinkler.
+
+Gestão de Equipamentos ( Extintores, Mangueiras Incêndio, Equipamentos de Ar Respirável), Sistemas de Alarme de Incêndio, Detecção de Incêndio, botoeiras e detectores , Iluminação de Emergência, Sistema Hidráulico de Hidrantes e Sprinkler.
+
+
+Realizado por Colaboradores Efetivos Aerotex, com Especialização em Engenharia Mecanica de Segurança, Técnicos Eletricistas e Encanadores, com especialização em Sistema de Incêndio.
+
+INCLUSO LAUDO EVIDENCIAL TÉCNICO E ART DE SERVIÇOS.
+
+Serviços computados por dia trabalhado , não sendo computado por minutos ou horas, Horário Administrativo.
+
+Vantagens:
+Serviço com possibilidade de acompanhamento por representantes da contratante.
+
+Serviço totalmente realizado conforme Novo Decreto 56.891/2011Corpo de Bombeiros do Estado de São Paulo ou Conforme decreto do Estado de Localização da Contratante",,,,,,,,,"1000.0000","0.0000",1,0,0,1,"1.0000",1,"0.0000",1,1,,"0.0000",1,0,1,0,1,"0.0000",1,0,0,0,1,"TESTE E MEDIÇÃO DE VAZÃO E PRESSÃO ESTÁTICA E DINÂMICA DE REDE HIDRÁULICA DE INCÊNDIO - EMISSAO LAUDO TÉCNICO  E ART DE PRESSÃO HIDRÁULICA ",0,"simple",,,,"Nenhuma atualização de disposição (layout)","Bloco após Coluna de Informações","Use config","Use config","Não","Ativado","Nenhum"
+"admin","base","Default","simple","10,42",1,0,"teste",,,,,,"teste","teste-1765.html"," ","Não","0.0000",,"0.3000",,,,,"Não","Catálogo, Busca","teste","teste",,,,,,,,,"0.0000","0.0000",1,0,0,1,"1.0000",1,"0.0000",1,0,"2014-10-17 19:33:25",,1,0,0,1,1,"0.0000",1,0,0,1,1,"teste",0,"simple",,,,"Nenhuma atualização de disposição (layout)","Bloco após Coluna de Informações","Use config","Use config","Não","Ativado","Nenhum"
+"admin","base","Default","simple","2,42,179,227",2,0,"teste2",,,,,,,," ","Não","0.0000",,"0.3000",,,,,"Não","Catálogo, Busca","teste2","teste2",,,,,,,,,"500.0000","0.0000",1,0,0,1,"1.0000",1,"0.0000",1,1,,,1,1,0,0,1,"0.0000",1,0,0,0,1,"teste2",0,"simple",,,,"Nenhuma atualização de disposição (layout)","Bloco após Coluna de Informações","Use config","Use config","Não","Ativado","Nenhum"

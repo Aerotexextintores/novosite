@@ -1,0 +1,180 @@
+﻿/*------------------------------------------------------------------------
+ # Ym Categories - Version 1.0
+ # Copyright (C) 2011 The YouTech Company. All Rights Reserved.
+ # @license http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
+ # Author: The YouTech Company
+ # Websites: http://www.ytcvn.com
+ -------------------------------------------------------------------------*/
+	/* CAPTIONS */
+.ymcategories .box-wrapper {
+	overflow: hidden;
+}
+
+.ymcategories .theme2 .arrow {
+	background: url(../images/arrow.png) no-repeat;
+	margin-top: 6px;
+	width: 6px;
+	height: 7px;
+	float: left;
+}
+
+.ymcategories .num_items {
+	float: left;
+	color: #737373;
+	overflow: hidden;
+	padding-left: 4px
+}
+
+.ymcategories .theme2 .sub_title {
+	float: left;
+	text-align: left;
+	overflow: hidden;
+	padding-left: 5px;
+	font-family: Arial, sans-serif, Helvetica
+}
+
+.ymcategories .theme3 .image {
+	float: left;
+	margin-right: 10px;
+}
+
+.ymcategories .theme3 .title {
+	font-weight: bold;
+	text-align: left;
+	font-family: Arial, sans-serif, Helvetica
+}
+
+.ymcategories .theme3 .sub_category {
+	text-align: left;
+	overflow: hidden;
+	line-height: 20px
+}
+
+.ymcategories ul.normal_content .normal_items .icon_right {
+	background: url(../images/plus.gif) no-repeat;
+	margin-top: 5px;
+	margin-right: 5px;
+	width: 13px;
+	height: 13px;
+	float: right
+}
+
+.ymcategories ul.normal_content .normal_items .closed .icon_right {
+	background: url(../images/plus.gif) no-repeat;
+	margin-top: 5px;
+	margin-right: 5px;
+	width: 13px;
+	height: 13px;
+	float: right
+}
+
+.ymcategories ul.normal_content .normal_items  .opened .icon_right {
+	background: url(../images/minus.gif) no-repeat;
+	margin-top: 5px;
+	margin-right: 5px;
+	float: right;
+	width: 13px;
+	height: 13px
+}
+
+.ymcategories .theme4 .icon_left {
+	background: url(../images/icon.png) no-repeat;
+	margin-top: 8px;
+	width: 7px;
+	height: 7px;
+	margin-left: 5px;
+	float: left
+}
+
+.ymcategories ul.normal_content .normal_items .title {
+	float: left;
+	padding-left: 10px;
+	padding-top: 4px;
+	overflow: hidden;
+	font-family: Arial, sans-serif, Helvetica
+}
+
+.tabs {
+	overflow: hidden;
+	height: 25px;
+	text-align: left;
+}
+
+.tab {
+	padding-left: 5px;
+	margin-top: 6px;
+}
+
+.tab li {
+	list-style: none;
+}
+
+.ymcategories .normal_category {
+	background-color: #FFFFFF;
+	float: left;
+	position: relative;
+	border: solid 1px #CCCCCC;
+}
+
+.ymcategories .normal_items {
+	list-style: none;
+	text-align: left;
+	padding-bottom: 1px
+}
+
+.ymcategories .normal_items a {
+	background: url(../images/bk.gif) repeat-x;
+	height: 24px;
+	text-decoration: none;
+}
+
+.ymcategories ul.normal_content {
+	padding-left: 0px;
+	background-color: #FFFFFF;
+	margin: 0;
+}
+
+.ymcategories .normal_category div.normal_items div.normal_content strong
+	{
+	color: #1f1f1f;
+}
+
+.ymcategories .normal_category div.normal_items div.normal_content span
+	{
+	color: #b7b7b7;
+	margin-top: -5px;
+	font-size: 11px;
+}
+
+.ymcategories .normal_category div.normal_items div.normal_content p {
+	color: #010000;
+	margin-top: 0px;
+}
+
+.ymcategories .normal_category div.normal_items div.normal_content div.normal_des
+	{
+	margin-top: 8px;
+	overflow: hidden;
+}
+
+.ymcategories .normal_category ul.normal_content li ul.normal_content_accor
+	{
+	list-style: none !important;
+	padding: 10px;
+	overflow: hidden;
+}
+
+.ymcategories .normal_category ul.normal_content li ul.normal_content_accor li.normal_desc
+	{
+	float: left;
+	position: relative;
+	list-style: none !important;
+	overflow: hidden;
+	margin-right: 7px
+}
+
+.ymcategories .normal_category ul.normal_content li ul.normal_content_accor li.normal_desc span
+	{
+	color: #B7B7B7;
+	font-size: 11px;
+}

@@ -1,0 +1,141 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * O2TI Soluções Web Ltda.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the New BSD License.
+ * It is also available through the world-wide-web at this URL:
+ * http://www.o2ti.com/new-bsd-license/
+ *
+ * @category   O2TI
+ * @package    O2TI_Sisfrete
+ * @copyright  Copyright (c) 2011 O2TI Soluções Web Ltda. (http://www.o2ti.com)
+ * @author     O2TI Soluções Web Ltda. <contato@o2ti.com>
+ * @license    http://www.o2ti.com/new-bsd-license/ New BSD License
+ */
+-->
+<config>
+    <modules>
+        <O2TI_Sisfrete>
+            <version>4.2.0</version>
+            <depends>
+                <Mage_Shipping />
+            </depends>
+        </O2TI_Sisfrete>
+    </modules>
+    <global>
+        <sales>
+            <quote>
+                <item>
+                    <product_attributes>
+                        <volume_altura/>
+                        <volume_comprimento/>
+                        <volume_largura/>
+                    </product_attributes>
+                </item>
+            </quote>
+        </sales>
+    	<models>
+            <O2TI_Sisfrete>
+                <class>O2TI_Sisfrete_Model</class>
+            </O2TI_Sisfrete>
+    	</models>
+        <resources>
+            <O2TI_Sisfrete_setup>
+                <setup>
+                    <module>O2TI_Sisfrete</module>
+                </setup>
+                <connection>
+                    <use>directory_setup</use>
+                </connection>
+            </O2TI_Sisfrete_setup>
+        </resources>
+        <helpers>
+            <O2TI_Sisfrete>
+                <class>O2TI_Sisfrete_Helper</class>
+            </O2TI_Sisfrete>
+        </helpers>
+        <sales>
+            <shipping>
+                <carriers>
+                    <O2TI_Sisfrete>
+                        <class>O2TI_Sisfrete_Model_Carrier_SisfreteMethod</class>
+                    </O2TI_Sisfrete>
+                </carriers>
+            </shipping>
+        </sales>
+	<events>
+	<sales_order_place_after>
+		        <observers>
+		            <O2TI_Sisfrete_Model_Observer>
+		                <type>singleton</type>
+		                <class>O2TI_Sisfrete_Model_Observer</class>
+		                <method>createorder_sisfrete</method>
+			    </O2TI_Sisfrete_Model_Observer>
+			</observers>
+      	</sales_order_place_after>
+	</events>
+    </global>
+
+    <default>
+        <carriers>
+            <O2TI_Sisfrete>
+                <!-- GENERAL -->
+                <active>1</active>
+                <model>O2TI_Sisfrete_Model_Carrier_SisfreteMethod</model>
+                <title>Sisfrete</title>
+                <postmethods>40010</postmethods>
+                <die_errors>1,2,3,4,5,33,34,35,36,37,38,888,7,99</die_errors>
+                <prazo_entrega>1</prazo_entrega>
+                <check_dimensions>1</check_dimensions>
+                <min_order_value>0</min_order_value>
+                <max_order_value>10000</max_order_value>
+                <maxweight>300</maxweight>
+                <handling_fee>0</handling_fee>
+                <ws_timeout>20</ws_timeout>
+
+                <!-- OPTIONS -->
+                
+
+                <!-- VOLUME -->
+                <altura_padrao>2</altura_padrao>
+                <comprimento_padrao>16</comprimento_padrao>
+                <largura_padrao>11</largura_padrao>
+                <altura_sent>2</altura_sent>
+                <comprimento_sent>16</comprimento_sent>
+                <largura_sent>11</largura_sent>
+
+                <!-- http://www.Sisfrete.com.br/encomendas/prazo/Formato.cfm -->
+                <volume_validation>
+                    <altura_max>90</altura_max>
+                    <altura_min>2</altura_min>
+                    <comprimento_max>90</comprimento_max>
+                    <comprimento_min>16</comprimento_min>
+                    <largura_max>90</largura_max>
+                    <largura_min>11</largura_min>
+                    <sum_max>160</sum_max>
+                </volume_validation>
+
+                <!-- CONFIG -->
+                <free_method>40010</free_method>
+                <weight_type>kg</weight_type>
+                <add_prazo>0</add_prazo>
+                <showmethod>1</showmethod>
+
+                <!-- MESSAGES -->
+                <msgprazo>%s - Em média %d dia(s)</msgprazo>
+                <Sisfreteerror>Houve um erro inesperado, por favor entre em contato. %s</Sisfreteerror>
+                
+
+                <!-- SYSTEM -->
+                
+                <volume_weight_min>5</volume_weight_min>
+                <coeficiente_volume>6000</coeficiente_volume>
+                
+                <url_ws_Sisfrete>http://ws.Sisfrete.com.br/calculador/CalcPrecoPrazo.aspx</url_ws_Sisfrete>
+            </O2TI_Sisfrete>
+        </carriers>
+    </default>
+</config>

@@ -1,0 +1,99 @@
+<?php       
+/*------------------------------------------------------------------------
+ # SM Categories - Version 1.0
+ # Copyright (c) 2009-2011 YouTech Company. All Rights Reserved.
+ # @license - Copyrighted Commercial Software
+ # Author: YouTech Company
+ # Websites: http://www.smartaddons.com
+-------------------------------------------------------------------------*/
+?>
+<?php
+ $mid = rand().time();
+ $smarthelper= Mage::helper('categories/utils');
+ $items = $this->getCategory();
+ $config = $this->getConfigObject();
+ foreach ($config as $key => $value){
+	$$key = $value;	
+}
+ ?>
+<?php if($count_items = count($items)):?>
+
+<div id="page-wrap" class="ymcategories">
+	<?php if (!empty($config['title'])): ?>
+	<div class="block-title" style="font-size: 16px; font-weight: bold;"><?php echo $config['title']; ?></div>
+	<?php endif; ?>
+	<!--Intro Text-->
+	<?php if($config['pretext']): ?>
+	<div style="text-align:left;">
+		<?php  echo $config['pretext'];?>
+	</div>
+	<br/>
+	<?php endif;?>
+
+	<div id="ytc_tabs<?php echo $mid;?>" class="theme1" style="overflow: hidden">  
+		<div class="box-wrapper" style="width:<?php echo $config['module_width'];?>px;" >                
+		<?php			
+			$ij=1;				
+			foreach($items as $key => $item){					
+				if (($ij%$config['category_columns']==1 && $config['category_columns']>1) || ($ij==1 && $config['category_columns']==1)){						 
+				?>
+                    <div class="content-box <?php if($ij==1) echo "current"; ?>" style="width:<?php echo $config['module_width']; ?>px; margin-bottom: 10px; float: left;">
+                    <?php
+                    } // endif ($ij==1)
+					$hasChild = count($item['childs'])>0;
+					$sub_content_width = ($config['module_width'] / $config['category_columns']);
+					$sub_content_width = "width:".$sub_content_width."px";				  
+				?>
+					<div class="sub_content" style="float: left; line-height: 20px; <?php echo $sub_content_width; ?>">
+						
+						<?php if ($config['category_title_disp'] == 1): ?>
+						<div class="title" style="color:<?php echo $config['category_title_color'];?>; font-weight: bold; text-align: left;"> 
+							<?php if($config['category_title_linkable'] ==1){ ?>		
+							<a style="color:<?php echo $config['category_title_color'];?>; font-weight: bold" href="<?php echo $item['category_link'];?>" <?php echo $smarthelper->getTargetAttr($config['product_links_target']); ?>><?php echo $item['category_name'];?></a><br>                                     									
+							<?php } else { echo $item['category_name']; }?> 									
+						</div>
+						<?php endif; // show_title? ?>
+						
+						<?php if ($hasChild):							
+							foreach ($item['childs'] as $child){
+								if ($config['category_sub_title_disp']==1){ ?>
+								
+								<div style="overflow: hidden">	
+									<div class="sub_category" style="float: left; color:<?php echo $config['category_sub_title_color'];?>; text-align: left;"> 
+									<?php if($config['category_sub_title_linkable'] ==1) {?>		
+									<a style="color:<?php echo $config['category_sub_title_color'];?>"; href="<?php echo $child['category_link'];?>" <?php echo $smarthelper->getTargetAttr($config['product_links_target']); ?>> <?php echo $child['category_name']; ?> </a> <br>                                     									
+									<?php } else { echo $child['category_name']; }?> 									
+									</div>
+									<?php if ($config['show_total_articles'] ==1) {?>
+									<div class="num_items"><?php echo ' ('. $child['products'] . ')';?></div>
+									<?php } ?>
+								</div>	
+									
+								<?php	} //end if ($config['category_sub_title_disp'] == 1)
+							} // end foreach							
+							endif;
+						?>
+					</div> <!-- END sub_content -->
+				<?php					
+				if ($ij==$count_items || $ij%$config['category_columns']==0):
+					// close div, if render completed.
+				?>					
+					</div>
+				<?php 	
+				endif;
+				++$ij;
+				//if($ij==3) break;			
+			} // end foreach			
+		?>
+		</div><!-- END Box Wrapper -->
+	</div><!-- END ytc_tabs -->
+</div>       
+<?php else: ?>
+<p class="note-msg"><?php echo $this->__('There are no products matching the selection.') . Mage::helper('categories')->__('Please choose a category for Smart Categories.') ?></p>
+<?php endif; ?>	
+<?php if($config['posttext']): ?>
+<br/>
+<div style="text-align:left">
+	<p><?php  echo $config['posttext'];?></p>
+</div>
+<?php endif;?>

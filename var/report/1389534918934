@@ -1,0 +1,46 @@
+a:5:{i:0;s:3844:"SELECT DISTINCT 1 AS `status`, `e`.`entity_id`, `e`.`type_id`, `e`.`attribute_set_id`, `cat_index`.`position` AS `cat_index_position`, `e`.`name`, `e`.`short_description`, `e`.`price`, `e`.`special_price`, `e`.`special_from_date`, `e`.`special_to_date`, `e`.`small_image`, `e`.`thumbnail`, `e`.`news_from_date`, `e`.`news_to_date`, `e`.`url_key`, `e`.`required_options`, `e`.`image_label`, `e`.`small_image_label`, `e`.`thumbnail_label`, `e`.`msrp_enabled`, `e`.`msrp_display_actual_price_type`, `e`.`msrp`, `e`.`tax_class_id`, `e`.`price_type`, `e`.`weight_type`, `e`.`price_view`, `e`.`shipment_type`, `e`.`links_purchased_separately`, `e`.`links_exist`, `e`.`open_amount_min`, `e`.`open_amount_max`, `e`.`add_block_static`, `e`.`entity_id`, `e`.`attribute_set_id`, `e`.`type_id`, `e`.`accessories_type`, `e`.`add_block_static`, `e`.`apparel_type`, `e`.`apparel_type_value`, `e`.`cost`, `e`.`created_at`, `e`.`gender`, `e`.`gender_value`, `e`.`gift_message_available`, `e`.`has_options`, `e`.`home_decor_type`, `e`.`home_decor_type_value`, `e`.`image_label`, `e`.`is_recurring`, `e`.`jewelry_type`, `e`.`jewelry_type_value`, `e`.`links_exist`, `e`.`links_purchased_separately`, `e`.`links_title`, `e`.`msrp`, `e`.`msrp_display_actual_price_type`, `e`.`msrp_enabled`, `e`.`name`, `e`.`necklace_length`, `e`.`necklace_length_value`, `e`.`news_from_date`, `e`.`news_to_date`, `e`.`occasion`, `e`.`occasion_value`, `e`.`open_amount_max`, `e`.`open_amount_min`, `e`.`price`, `e`.`price_type`, `e`.`price_view`, `e`.`recurring_profile`, `e`.`required_options`, `e`.`shipment_type`, `e`.`shoe_type`, `e`.`shoe_type_value`, `e`.`short_description`, `e`.`sku`, `e`.`sku_type`, `e`.`small_image`, `e`.`small_image_label`, `e`.`special_from_date`, `e`.`special_price`, `e`.`special_to_date`, `e`.`tax_class_id`, `e`.`thumbnail`, `e`.`thumbnail_label`, `e`.`updated_at`, `e`.`url_key`, `e`.`url_path`, `e`.`visibility`, `e`.`weight`, `e`.`weight_type`, `e`.`volume_altura`, `e`.`volume_comprimento`, `e`.`volume_largura`, `price_index`.`price`, `price_index`.`tax_class_id`, `price_index`.`final_price`, IF(price_index.tier_price IS NOT NULL, LEAST(price_index.min_price, price_index.tier_price), price_index.min_price) AS `minimal_price`, `price_index`.`min_price`, `price_index`.`max_price`, `price_index`.`tier_price`, `at_inventory_in_stock`.`is_in_stock` AS `inventory_in_stock`, `mv`.*, `bs`.*, `ra`.`reviews_count` AS `num_reviews_count`, `ra`.`rating_summary` AS `num_rating_summary` FROM `catalog_product_flat_9` AS `e`
+ INNER JOIN `catalog_category_product_index` AS `cat_index` ON cat_index.product_id=e.entity_id AND cat_index.store_id=9 AND cat_index.visibility IN(2, 4) AND cat_index.category_id = '10'
+ INNER JOIN `catalog_product_index_price` AS `price_index` ON price_index.entity_id = e.entity_id AND price_index.website_id = '1' AND price_index.customer_group_id = 0
+ INNER JOIN `cataloginventory_stock_item` AS `at_inventory_in_stock` ON (at_inventory_in_stock.`product_id`=e.entity_id) AND ((at_inventory_in_stock.use_config_manage_stock = 0 AND at_inventory_in_stock.manage_stock=1 AND at_inventory_in_stock.is_in_stock=1) OR (at_inventory_in_stock.use_config_manage_stock = 0 AND at_inventory_in_stock.manage_stock=0) OR (at_inventory_in_stock.use_config_manage_stock = 1 AND at_inventory_in_stock.is_in_stock=1))
+ LEFT JOIN (SELECT `report_event`.*, COUNT(`event_id`) AS `num_view_counts` FROM `report_event` WHERE (event_type_id = 1) GROUP BY `object_id`) AS `mv` ON mv.object_id = e.entity_id
+ LEFT JOIN (SELECT `sales_flat_order_item`.`product_id`, SUM(`qty_ordered`) AS `ordered_qty` FROM `sales_flat_order_item` GROUP BY `product_id`) AS `bs` ON bs.product_id = e.entity_id
+ LEFT JOIN `review_entity_summary` AS `ra` ON e.entity_id = ra.entity_pk_value AND ra.store_id=9 GROUP BY `entity_id` ORDER BY `e`.`name` ASC LIMIT 5
+
+";i:1;s:4783:"#0 /home/aerotexe/public_html/lib/Varien/Db/Statement/Pdo/Mysql.php(110): Zend_Db_Statement_Pdo->_execute(Array)
+#1 /home/aerotexe/public_html/app/code/core/Zend/Db/Statement.php(291): Varien_Db_Statement_Pdo_Mysql->_execute(Array)
+#2 /home/aerotexe/public_html/lib/Zend/Db/Adapter/Abstract.php(480): Zend_Db_Statement->execute(Array)
+#3 /home/aerotexe/public_html/lib/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query('SELECT DISTINCT...', Array)
+#4 /home/aerotexe/public_html/lib/Varien/Db/Adapter/Pdo/Mysql.php(428): Zend_Db_Adapter_Pdo_Abstract->query('SELECT DISTINCT...', Array)
+#5 /home/aerotexe/public_html/lib/Zend/Db/Adapter/Abstract.php(737): Varien_Db_Adapter_Pdo_Mysql->query('SELECT DISTINCT...', Array)
+#6 /home/aerotexe/public_html/lib/Varien/Data/Collection/Db.php(734): Zend_Db_Adapter_Abstract->fetchAll('SELECT DISTINCT...', Array)
+#7 /home/aerotexe/public_html/app/code/core/Mage/Eav/Model/Entity/Collection/Abstract.php(1047): Varien_Data_Collection_Db->_fetchAll('SELECT DISTINCT...')
+#8 /home/aerotexe/public_html/app/code/core/Mage/Eav/Model/Entity/Collection/Abstract.php(871): Mage_Eav_Model_Entity_Collection_Abstract->_loadEntities(false, false)
+#9 /home/aerotexe/public_html/lib/Varien/Data/Collection.php(301): Mage_Eav_Model_Entity_Collection_Abstract->load()
+#10 /home/aerotexe/public_html/app/code/local/Sm/Categoryslider/Block/List.php(118): Varien_Data_Collection->getItems()
+#11 /home/aerotexe/public_html/app/design/frontend/default/sm-megashop/template/sm/categoryslider/default.phtml(10): Sm_Categoryslider_Block_List->_getProducts()
+#12 /home/aerotexe/public_html/app/code/core/Mage/Core/Block/Template.php(241): include('/home/aerotexe/...')
+#13 /home/aerotexe/public_html/app/code/core/Mage/Core/Block/Template.php(272): Mage_Core_Block_Template->fetchView('frontend/defaul...')
+#14 /home/aerotexe/public_html/app/code/core/Mage/Core/Block/Template.php(286): Mage_Core_Block_Template->renderView()
+#15 /home/aerotexe/public_html/app/code/local/Sm/Categoryslider/Block/List.php(93): Mage_Core_Block_Template->_toHtml()
+#16 /home/aerotexe/public_html/app/code/core/Mage/Core/Block/Abstract.php(919): Sm_Categoryslider_Block_List->_toHtml()
+#17 /home/aerotexe/public_html/app/code/core/Mage/Core/Block/Text/List.php(43): Mage_Core_Block_Abstract->toHtml()
+#18 /home/aerotexe/public_html/app/code/core/Mage/Core/Block/Abstract.php(919): Mage_Core_Block_Text_List->_toHtml()
+#19 /home/aerotexe/public_html/app/code/core/Mage/Core/Block/Abstract.php(637): Mage_Core_Block_Abstract->toHtml()
+#20 /home/aerotexe/public_html/app/code/core/Mage/Core/Block/Abstract.php(581): Mage_Core_Block_Abstract->_getChildHtml('content-bottom-...', true)
+#21 /home/aerotexe/public_html/app/design/frontend/default/sm-megashop/template/page/1column.phtml(103): Mage_Core_Block_Abstract->getChildHtml('content-bottom-...')
+#22 /home/aerotexe/public_html/app/code/core/Mage/Core/Block/Template.php(241): include('/home/aerotexe/...')
+#23 /home/aerotexe/public_html/app/code/core/Mage/Core/Block/Template.php(272): Mage_Core_Block_Template->fetchView('frontend/defaul...')
+#24 /home/aerotexe/public_html/app/code/core/Mage/Core/Block/Template.php(286): Mage_Core_Block_Template->renderView()
+#25 /home/aerotexe/public_html/app/code/core/Mage/Core/Block/Abstract.php(919): Mage_Core_Block_Template->_toHtml()
+#26 /home/aerotexe/public_html/app/code/core/Mage/Core/Model/Layout.php(555): Mage_Core_Block_Abstract->toHtml()
+#27 /home/aerotexe/public_html/app/code/core/Mage/Core/Controller/Varien/Action.php(390): Mage_Core_Model_Layout->getOutput()
+#28 /home/aerotexe/public_html/app/code/core/Mage/Cms/Helper/Page.php(137): Mage_Core_Controller_Varien_Action->renderLayout()
+#29 /home/aerotexe/public_html/app/code/core/Mage/Cms/Helper/Page.php(52): Mage_Cms_Helper_Page->_renderPage(Object(Mage_Cms_IndexController), 'home-02')
+#30 /home/aerotexe/public_html/app/code/core/Mage/Cms/controllers/IndexController.php(45): Mage_Cms_Helper_Page->renderPage(Object(Mage_Cms_IndexController), 'home-02')
+#31 /home/aerotexe/public_html/app/code/core/Mage/Core/Controller/Varien/Action.php(418): Mage_Cms_IndexController->indexAction()
+#32 /home/aerotexe/public_html/app/code/core/Mage/Core/Controller/Varien/Router/Standard.php(250): Mage_Core_Controller_Varien_Action->dispatch('index')
+#33 /home/aerotexe/public_html/app/code/core/Mage/Core/Controller/Varien/Front.php(172): Mage_Core_Controller_Varien_Router_Standard->match(Object(Mage_Core_Controller_Request_Http))
+#34 /home/aerotexe/public_html/app/code/core/Mage/Core/Model/App.php(354): Mage_Core_Controller_Varien_Front->dispatch()
+#35 /home/aerotexe/public_html/app/Mage.php(684): Mage_Core_Model_App->run(Array)
+#36 /home/aerotexe/public_html/index.php(87): Mage::run('', 'store')
+#37 {main}";s:3:"url";s:11:"/~aerotexe/";s:11:"script_name";s:20:"/~aerotexe/index.php";s:4:"skin";s:7:"hungary";}

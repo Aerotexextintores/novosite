@@ -1,0 +1,226 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * O2TI Soluções Web Ltda.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the New BSD License.
+ * It is also available through the world-wide-web at this URL:
+ * http://www.o2ti.com/new-bsd-license/
+ *
+ * @category   O2TI
+ * @package    O2TI_Sisfrete
+ * @copyright  Copyright (c) 2011 O2TI Soluções Web Ltda. (http://www.o2ti.com)
+ * @author     O2TI Soluções Web Ltda. <contato@o2ti.com>
+ * @license    http://www.o2ti.com/new-bsd-license/ New BSD License
+ */
+-->
+<config>
+    <sections>
+        <carriers>
+            <groups>
+                <O2TI_Sisfrete translate="label" module="O2TI_Sisfrete">
+                    <label>Sisfrete - O2TI Soluções Web Ltda.</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <comment>
+                        <![CDATA[
+                            <div>
+                                <br />
+                                <strong style="font-size:14px">Informações Importantes</strong><br /><br />
+                                Você pode tirar dúvidas ou sugerir melhorias do módulo através do site
+                                <a href="http://www.o2ti.com/" target="_blank">www.o2ti.com</a>.<br /><br />
+                              
+                                <hr /><br /><br />
+                            </div>
+                        ]]>
+                    </comment>
+                    <fields>
+                        <active translate="label">
+                            <label>Habilitar</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </active>
+                        <title translate="label">
+                            <label>Nome do Meio de Entrega</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>15</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </title>
+                        
+                        <cod_admin translate="label">
+                            <label>Token Administrativo dos Sisfrete</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>35</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </cod_admin>
+                       
+                        <prazo_entrega translate="label">
+                            <label>Exibir Prazo de Entrega</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>45</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </prazo_entrega>
+                        <msgprazo translate="label">
+                            <label>Mensagem que Exibe o Prazo de Entrega</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <tooltip>"%s" para o nome do serviço, por exemplo "Sedex", "%d" para o número de dias.</tooltip>
+                            <depends><prazo_entrega>1</prazo_entrega></depends>
+                        </msgprazo>
+                       
+                        <check_dimensions>
+                            <label>Validar Dimensões dos Produtos</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>90</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[Ao habilitar essa funcionalidade cada produto será validado seguindo a regra de dimensões dos Sisfrete.<br />A regra pode ser encontrada <a href="http://www.Sisfrete.com.br/encomendas/prazo/Formato.cfm" target="_blank">nesse link</a>.]]></comment>
+                        </check_dimensions>
+                        <altura_padrao translate="label">
+                            <label>Altura Padrão (cm)</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[Quando não configurada no produto será usada.<br />Mínimo de 2 cm.]]></comment>
+                        </altura_padrao>
+                        <comprimento_padrao translate="label">
+                            <label>Comprimento Padrão (cm)</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>110</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[Quando não configurado no produto será usado.<br />Mínimo de 16 cm.]]></comment>
+                        </comprimento_padrao>
+                        <largura_padrao translate="label">
+                            <label>Largura Padrão (cm)</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>120</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[Quando não configurada no produto será usada.<br />Mínimo de 11 cm.]]></comment>
+                        </largura_padrao>
+                        <min_order_value translate="label">
+                            <label>Valor Mínimo de Compra</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>130</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </min_order_value>
+                        <max_order_value translate="label">
+                            <label>Valor Máximo de Compra</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>140</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </max_order_value>
+                        <maxweight translate="label">
+                            <label>Peso Máximo Permitido Pelos Sisfrete</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>150</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Utilize o mesmo formato de peso configurado no módulo, kilos ou gramas.</comment>
+                        </maxweight>
+                        <handling_fee translate="label">
+                            <label>Taxa de Postagem</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>160</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Essa taxa será adicionada ao valor do frete.</comment>
+                        </handling_fee>
+                        <add_prazo translate="label">
+                            <label>Adicionar ao prazo dos Sisfrete (dias)</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>170</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Adicionará mais dias aos prazos fornecidos pelos Sisfrete.</comment>
+                        </add_prazo>
+                        <Sisfreteerror translate="label">
+                            <label>Mensagem que Exibe os Erros dos Sisfrete</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>180</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </Sisfreteerror>
+                        <dimensionerror translate="label">
+                            <label>Mensagem de Dimensões Fora do Permitido</label>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>190</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </dimensionerror>
+                        <valueerror translate="label">
+                            <label>Mensagem de Valor Fora do Permitido</label>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>200</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </valueerror>
+                        <zipcodeerror translate="label">
+                            <label>Mensagem de CEP Não atendido</label>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>210</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </zipcodeerror>
+                       
+                        <showmethod translate="label">
+                            <label>Mostrar Método Mesmo se Não Aplicável</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>260</sort_order>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Se houver um erro ou o método não for aplicável naquela situação, mesmo assim mostrar as mensagens de erro?</comment>
+                        </showmethod>
+                        <sort_order translate="label">
+                            <label>Ordenar Por</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>270</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </sort_order>
+                    </fields>
+                </O2TI_Sisfrete>
+            </groups>
+        </carriers>
+    </sections>
+</config>

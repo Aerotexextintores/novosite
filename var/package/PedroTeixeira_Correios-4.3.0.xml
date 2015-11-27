@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<package>
+    <name>PedroTeixeira_Correios</name>
+    <version>4.3.0</version>
+    <stability>stable</stability>
+    <license uri="http://www.opensource.org/licenses/mit-license.php">MIT License</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>M&#xF3;dulo de c&#xE1;lculo de PAC, Sedex, E-Sedex, Sedex 10, Sedex Hoje e Sedex a Cobrar.</summary>
+    <description>Vers&#xE3;o 4.3.0 do m&#xF3;dulo de c&#xE1;lculo de frete para Magento.&#xD;
+&#xD;
+Utilizando peso volum&#xE9;trico para c&#xE1;lculo de todos os servi&#xE7;os e compat&#xED;vel com a valida&#xE7;&#xE3;o de dimens&#xF5;es dos Correios. &#xD;
+&#xD;
+Servi&#xE7;os suportados:&#xD;
+&#xD;
+- Sedex Sem Contrato&#xD;
+- Sedex Com Contrato&#xD;
+- E-Sedex Com Contrato&#xD;
+- PAC Sem Contrato&#xD;
+- PAC Com Contrato&#xD;
+- Sedex 10&#xD;
+- Sedex HOJE&#xD;
+- Sedex a Cobrar&#xD;
+&#xD;
+Conta com identifica&#xE7;&#xE3;o de erros dos Correios, m&#xE3;o pr&#xF3;pria, aviso de recebimento, valor declarado, captura do prazo de entrega dos Correios, adicionar mais dias ao prazo dos Correios, identifica o volume dos produtos por atributo e Tracking em tempo real.&#xD;
+&#xD;
+Mais informa&#xE7;&#xF5;es em http://pedroteixeira.io</description>
+    <notes>Bugfix:&#xD;
+&#xD;
+- Assinatura do m&#xE9;todo isZipCodeRequired() foi alterada&#xD;
+&#xD;
+Feature:&#xD;
+&#xD;
+- Revis&#xE3;o do code style&#xD;
+- Documenta&#xE7;&#xE3;o em markdown&#xD;
+- Novos c&#xF3;digos de erros dos Correios&#xD;
+- Novos limites de dimens&#xE3;o dos Correios</notes>
+    <authors><author><name>Pedro Teixeira</name><user>teixeirapedro</user><email>hello@pedroteixeira.io</email></author></authors>
+    <date>2014-08-03</date>
+    <time>22:56:30</time>
+    <contents><target name="magecommunity"><dir name="PedroTeixeira"><dir name="Correios"><dir name="Helper"><file name="Data.php" hash="3cad79e9b6499ad762d5b52cffc309b8"/></dir><dir name="Model"><dir name="Carrier"><file name="CorreiosMethod.php" hash="9b72318b51409857321ed524b75e6641"/></dir><dir name="Source"><file name="PostMethods.php" hash="ae6eff9ea069080f6a77e19a37290887"/><file name="WeightType.php" hash="e49300e3836905862ae19e9add86bf96"/></dir></dir><dir name="etc"><file name="config.xml" hash="796ef0d67c95af6a2c7c557ead7e659d"/><file name="system.xml" hash="87bf5a7eb8f7231df063453968f82c8b"/></dir><dir name="sql"><dir name="pedroteixeira_correios_setup"><file name="install-4.0.0.php" hash="63f35dbcdcae0d1430afc2afdd51ab97"/><file name="upgrade-4.0.0-4.1.0.php" hash="0734387a4591ef680cea2c2148e04582"/><file name="upgrade-4.1.0-4.2.0.php" hash="a075e89ea6ced350b18eeae9e9ec7eaf"/></dir></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="PedroTeixeira_Correios.xml" hash="f49af429aed120dbb234cf0c0a99377d"/></dir></target></contents>
+    <compatible/>
+    <dependencies><required><php><min>5.2.0</min><max>6.0.0</max></php></required></dependencies>
+</package>

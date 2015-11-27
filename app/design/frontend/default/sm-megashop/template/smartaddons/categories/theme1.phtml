@@ -1,0 +1,75 @@
+<?php       
+/*------------------------------------------------------------------------
+ # SM Categories - Version 1.0
+ # Copyright (c) 2009-2011 YouTech Company. All Rights Reserved.
+ # @license - Copyrighted Commercial Software
+ # Author: YouTech Company
+ # Websites: http://www.smartaddons.com
+-------------------------------------------------------------------------*/
+?>
+<?php
+ $mid = rand().time();
+ $smarthelper= Mage::helper('categories/utils');
+ $items = $this->getCategory();
+ $config = $this->getConfigObject();
+ foreach ($config as $key => $value){
+	$$key = $value;	
+}
+ ?>
+<?php if($count_items = count($items)):?>
+
+<div id="page-wrap" class="ymcategories">
+	<?php if (!empty($config['title'])): ?>
+	<div class="block-title" style="font-size: 16px; font-weight: bold;"><?php echo $config['title']; ?></div>
+	<?php endif; ?>
+	<!--Intro Text-->
+	<?php if($config['pretext']): ?>
+	<div style="text-align:left;">
+		<?php  echo $config['pretext'];?>
+	</div>
+	<br/>
+	<?php endif;?>
+
+	<div id="ytc_tabs<?php echo $mid;?>" class="theme1" >  
+		<?php		
+			foreach($items as $key => $item){		?>		
+				<?php
+					$hasChild = count($item['childs'])>0;
+				?>
+				<div class="sub_content">
+						<?php if ($config['category_title_disp'] == 1): ?>
+						<div class="title"><span>
+							<?php echo $item['category_name']; ?></span> 									
+						</div>
+						<?php endif;  ?>
+						
+						<?php if ($hasChild):							
+							foreach ($item['childs'] as $child){
+								if ($config['category_sub_title_disp']==1){ ?>
+
+								<div class="sub_category"> 
+								<?php if($config['category_sub_title_linkable'] ==1) {?>		
+								<a href="<?php echo $child['category_link'];?>" <?php echo $smarthelper->getTargetAttr($config['product_links_target']); ?>> <?php echo $child['category_name']; ?><?php echo ' ';?> </a>
+								<?php } else { echo $child['category_name']; }?> 									
+								</div>
+								
+								<?php	} 
+							} // end foreach							
+							endif;
+						?>
+					</div> <!-- END sub_content -->
+				<?php 	
+			} // end foreach			
+		?>
+		
+	</div><!-- END ytc_tabs -->
+</div>       
+<?php else: ?>
+<p class="note-msg"><?php echo $this->__('There are no products matching the selection.') . Mage::helper('categories')->__('Please choose a category for Smart Categories.') ?></p>
+<?php endif; ?>	
+<?php if($config['posttext']): ?>
+<br/>
+<div style="text-align:left">
+	<p><?php  echo $config['posttext'];?></p>
+</div>
+<?php endif;?>

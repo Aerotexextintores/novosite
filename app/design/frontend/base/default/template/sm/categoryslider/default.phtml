@@ -1,0 +1,233 @@
+<?php
+/*------------------------------------------------------------------------
+ # SM Category Slider - Version 1.0.0
+ # Copyright (c) 2014 YouTech Company. All Rights Reserved.
+ # @license - Copyrighted Commercial Software
+ # Author: YouTech Company
+ # Websites: http://www.magentech.com
+-------------------------------------------------------------------------*/
+
+$list = $this->_getProducts();
+$cat_info = $this->getListCategoriesFilter();
+
+if(!empty($list)){ 
+	$import_str = "";
+	$jsHelper = Mage::helper('core/js');
+		// jquery has not added yet
+	if (!defined('MAGENTECH_JQUERY')  && (int)$this->_getConfig('include_jquery')){
+		// if module allowed jquery.
+		$import_str .= $jsHelper->includeSkinScript('sm/categoryslider/js/jquery-1.8.2.min.js');
+		$import_str .= $jsHelper->includeSkinScript('sm/categoryslider/js/jquery-noconflict.js');
+		define('MAGENTECH_JQUERY',1);
+	}
+	if (!defined('MAGENTECH_JQUERY_ABC')) {
+		$import_str .= $jsHelper->includeSkinScript('sm/categoryslider/js/categoryslider.js');
+		define('MAGENTECH_JQUERY_SLIDER',1);
+	}
+	echo $import_str;
+
+	$tag_id = 'sm_categoryslider_'.rand().time();
+	$helper = Mage::helper('categoryslider/data');
+	$stop = (int)$this->_getConfig('stop',1) ? 'hover' : '';
+	$play = (int)$this->_getConfig('play',1);
+	$interval = (int)$this->_getConfig('delay');
+	$interval = $play ? $interval : 0;
+	$speed =(int)$this->_getConfig('duration');
+	$start = (int) $this->_getConfig('start');
+	$start = ( $start <= 0 || $start > count($list) ) ? 0 : $start - 1;
+	$step = (int)$this->_getConfig('scroll',1);
+	$step = $step <= 0 ? 1: $step;
+	$effect = $this->_getConfig('effect');
+?>
+	<?php if($this->_getConfig('pretext') != '') { ?>
+		<div class="pre-text"><?php echo $this->_getConfig('pretext'); ?></div>
+	<?php } ?>
+	<div id="<?php echo $tag_id; ?>" class="sm-categoryslider sm-categoryslider-preload <?php if( $this->_getConfig('cat_image_display') == 0 ){echo 'no-cat-image';}?> <?php if( $this->_getConfig('cat_sub_display') == 0 ){echo 'no-cat-sub';}?>">
+			<div class="sm-categoryslider-loading"></div>
+			<?php foreach( $cat_info as $cat){?>
+			<div class="page-title-categoryslider">
+				<?php echo $cat['name'];?>
+			</div>
+			<?php }?>
+			<?php if( $this->_getConfig('button_display') == 1 ){?>
+			<div class="page-button">
+				<ul class="control-button">
+					<li class="preview">Prev</li>
+					<li class="next">Next</li>
+				</ul>		
+			</div>
+			<?php }?>
+		<?php $class_respl = 'preset01-' . $this->_getConfig('nb_column1', 4) . ' preset02-' . $this->_getConfig('nb_column2', 3) . ' preset03-' . $this->_getConfig('nb_column3', 2) . ' preset04-' . $this->_getConfig('nb_column4', 2) . ' preset05-' . $this->_getConfig('nb_column5', 1); ?>
+		<div class="categoryslider-content <?php echo $class_respl; ?>">
+			<?php foreach( $cat_info as $cat){
+				if( $this->_getConfig('cat_image_display') == 1 ){?>
+				<div class="item-cat-image">
+					<div class="cat-image">
+						<img src="<?php echo $cat['image'];?>" alt="<?php echo $cat['name'];?>"/>
+					</div>
+				</div>
+			<?php }}?>
+			<div class="categoryslider not-js cols-6">			
+				<div class="vpo-wrap">
+					<div class="vp">
+						<div class="vpi-wrap tt-effect-<?php echo $effect;?> tt-effect-delay">						
+						<?php foreach($list as $_product){
+						?>
+							<div class="item">
+								<div class="item-wrap">
+								<?php 
+								if( $_product->_image ) { ?>
+									<div class="item-img item-height">
+										<div class="item-img-info">
+											<a href="<?php echo $_product->link;?>" title="<?php echo $_product->title; ?>" <?php echo $helper->parseTarget($this->_getConfig('product_links_target'));?> >
+												<img src="<?php echo $_product->_image ;?>" alt="<?php echo $_product->title; ?>" title="<?php echo  $_product->title; ?>" />
+											</a>
+										</div>
+									</div>
+								<?php } ?>
+									<div class="item-info">
+										<div class="item-inner">
+										<?php if( (int)$this->_getConfig('product_title_display',1) ) { ?>
+											<div class="item-title">
+												<a href="<?php echo $_product->link;?>" title="<?php echo $_product->title; ?>" <?php echo $helper->parseTarget($this->_getConfig('product_links_target'));?> >
+													<?php echo $helper->truncate($_product->title,$this->_getConfig('product_title_maxlength'));?>
+												</a>
+											</div>
+										<?php } ?>
+											<div class="item-content">
+											<?php 
+											if((int)$this->_getConfig('product_description_display',1) && $helper->_trimEncode($_product->_description) != '' ){?>
+												<div class="item-des">
+													<?php echo $_product->_description; ?>
+												</div>
+											<?php }?>
+												<?php if((int)$this->_getConfig('product_reviews_count',1)){ ?>
+												<div class="item-review">
+													<?php echo $this->getReviewsSummaryHtml($_product, 'short', true);?>
+												</div>
+												<?php }					 
+												if( (int)$this->_getConfig('product_price_display',1) ){ ?>
+													<div class="item-price">
+														<div class="sale-price">
+															<?php echo $this->getPriceHtml($_product,true);?>
+														</div>
+													</div>
+												<?php } ?>
+												<?php if ((int)$this->_getConfig('product_addcart_display', 1)) : ?>
+													<?php if($_product->isSaleable()): ?>
+														<div class="item-btn-addtocart"><button type="button" title="<?php echo $this->__('Add to Cart') ?>" class="button btn-cart" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')"><span><span><?php echo $this->__('Add to Cart') ?></span></span></button></div>
+													<?php else: ?>
+														<p class="availability out-of-stock"><span><?php echo $this->__('Out of stock') ?></span></p>
+													<?php endif; 
+													endif;
+												if ((int)$this->_getConfig('product_addwishlist_display', 1) || (int)$this->_getConfig('product_addcompare_display', 1)) :?>	
+												<ul class="add-to-links">
+													<?php if ($this->helper('wishlist')->isAllow() && (int)$this->_getConfig('product_addwishlist_display', 1)) : ?>
+														<li><a href="<?php echo $this->helper('wishlist')->getAddUrl($_product) ?>" class="link-wishlist"><?php echo $this->__('Add to Wishlist') ?></a></li>
+													<?php endif; ?>
+													<?php if($_compareUrl = $this->getAddToCompareUrl($_product) && (int)$this->_getConfig('product_addcompare_display', 1)): ?>
+														<li><span class="separator">|</span> <a href="<?php echo $_compareUrl ?>" class="link-compare"><?php echo $this->__('Add to Compare') ?></a></li>
+													<?php endif; ?>
+												</ul>
+												<?php endif;	
+											if( (int)$this->_getConfig('product_readmore_display',1) ){?>
+											<div class="item-details">
+												<a href="<?php echo $_product->link;?>" <?php echo $helper->parseTarget($this->_getConfig('product_links_target'));?> >
+													<?php echo $this->_getConfig('product_readmore_text'); ?>
+												</a>
+											</div>	
+											<?php }?>							
+											</div>	
+											<?php if( $this->_getConfig('theme') == "theme2" ) {
+												if( (int)$this->_getConfig('product_title_display',1) && $_product->title !=""){?>
+													<div class="item-bg"></div>				
+												<?php }
+											}?>		
+										</div>
+									</div>						
+								</div>
+							</div>
+						<?php }?>											
+						</div>
+					</div>
+				</div>			
+			</div>
+			<?php if( $this->_getConfig('cat_sub_display') == 1){?>
+				<div class="item-sub-cat">
+					<ul>
+					<?php foreach( $cat_info as $cat){
+						$cat_child = $cat['child'];
+						$i = 0;
+						foreach( $cat_child as $item ){ 
+							$i ++;
+							$count_sub = (int)$this->_getConfig('sub_cat_limitation');
+							if ( $i <= $count_sub ){
+						?>
+						<li>
+							<a href="<?php echo $item['link'];?>" <?php echo $helper::parseTarget($this->_getConfig('link_target', '_self')) ?>>
+								<?php echo $item['name'];?>
+							</a>
+						</li>
+					<?php }}}?>
+					</ul>
+				</div>
+			<?php }?>
+		</div>		
+	</div>
+	<?php if( $this->_getConfig('posttext') != '' ) {  ?>
+		<div class="post-text"><?php echo $this->_getConfig('posttext'); ?></div>
+	<?php } ?>
+	
+	<script type="text/javascript">
+	//<![CDATA[
+		jQuery(document).ready(function($){
+		;(function(element){
+			var $el = $(element);
+			function runSlider(){
+				$('.categoryslider',$el).responsiver({
+					interval: <?php echo $interval; ?>,
+					speed: <?php echo $speed; ?>,
+					start: <?php echo $start; ?>,
+					step: <?php echo $step; ?>,
+					circular: true,
+					preload: true,
+					fx: 'fade',
+					pause: '<?php echo $stop;?>',
+					control:{
+						prev: '#<?php echo $tag_id;?> .control-button li[class="preview"]',
+						next: '#<?php echo $tag_id;?> .control-button li[class="next"]'
+					},
+					getColumns: function(_element){
+						var match = $(_element).attr('class').match(/cols-(\d+)/);
+						if (match[1]){
+							var column = parseInt(match[1]);
+						} else {
+							var column = 1;
+						}
+						if (!column) column = 1;
+						return column;
+					}          
+				});	
+			}
+
+			var _timer;
+			$(window).load(function(){
+				if(_timer) clearTimeout(_timer);
+				_timer = setTimeout(function(){
+					$el.removeClass('sm-categoryslider-preload');
+					$('.sm-categoryslider-loading',$el).remove();
+					runSlider();
+				},500);
+			});
+
+			})('#<?php echo $tag_id;?>')
+			
+		});
+	//]]>
+	</script>  	
+	
+<?php
+} else {
+	echo $this->__('Has no item to show!');
+}?>
+ 

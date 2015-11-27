@@ -1,0 +1,9 @@
+a:5:{i:0;s:137:"Cannot send headers; headers already sent in /home2/aerotexe/public_html/app/code/local/Redstage/Categoryview/Block/Category.php, line 65";i:1;s:1037:"#0 /home2/aerotexe/public_html/lib/Zend/Controller/Response/Abstract.php(115): Zend_Controller_Response_Abstract->canSendHeaders(true)
+#1 /home2/aerotexe/public_html/app/code/local/Sm/Shopby/controllers/CategoryController.php(75): Zend_Controller_Response_Abstract->setHeader('Content-Type', 'application/jso...', true)
+#2 /home2/aerotexe/public_html/app/code/core/Mage/Core/Controller/Varien/Action.php(418): Sm_Shopby_CategoryController->viewAction()
+#3 /home2/aerotexe/public_html/app/code/local/Sm/Shopby/Controller/Router.php(96): Mage_Core_Controller_Varien_Action->dispatch('view')
+#4 /home2/aerotexe/public_html/app/code/core/Mage/Core/Controller/Varien/Front.php(172): Sm_Shopby_Controller_Router->match(Object(Mage_Core_Controller_Request_Http))
+#5 /home2/aerotexe/public_html/app/code/core/Mage/Core/Model/App.php(354): Mage_Core_Controller_Varien_Front->dispatch()
+#6 /home2/aerotexe/public_html/app/Mage.php(684): Mage_Core_Model_App->run(Array)
+#7 /home2/aerotexe/public_html/index.php(87): Mage::run('', 'store')
+#8 {main}";s:3:"url";s:53:"/~aerotexe/produtos/filter/cat/185.html?isLayerAjax=1";s:11:"script_name";s:20:"/~aerotexe/index.php";s:4:"skin";s:7:"hungary";}

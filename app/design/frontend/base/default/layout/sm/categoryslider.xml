@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<layout version="1.0">
+	<default>
+		<reference name="head">
+			<!--<action method="addItem">
+				<type>skin_css</type>
+				<name>sm/categoryslider/css/categoryslider.css</name>
+			</action>
+			<action method="addItem">
+				<type>skin_css</type>
+				<name>sm/categoryslider/css/component.css</name>
+			</action>-->
+			<!--<action method="addItem"><type>skin_js</type><name>sm/categoryslider/js/categoryslider.js</name></action>-->
+		</reference>
+	</default>
+	<categoryslider_index_index>
+		<reference name="content">
+			<block type="categoryslider/list" name="categoryslider.list.default" template="sm/categoryslider/default.phtml">
+			</block>
+		</reference>
+	</categoryslider_index_index>
+</layout>   
+	

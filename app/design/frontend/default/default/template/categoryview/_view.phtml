@@ -1,0 +1,167 @@
+<?php
+/**
+ * Category view template
+ *
+ * @see Redstage_Categoryview_Block_Category
+ */
+?>
+<?php
+    $_helper    = $this->helper('catalog/output');
+    $_category  = $this->getCurrentCategory();
+    $_imgHtml   = '';
+    if ($_imgUrl = $_category->getImageUrl()) {
+        $_imgHtml = '<p class="category-image"><img src="'.$_imgUrl.'" alt="'.$this->htmlEscape($_category->getName()).'" title="'.$this->htmlEscape($_category->getName()).'" /></p>';
+        $_imgHtml = $_helper->categoryAttribute($_category, $_imgHtml, 'image');
+    }
+?>
+<div class="page-title category-title">
+    <?php if($this->IsRssCatalogEnable() && $this->IsTopCategory()): ?>
+        <a href="<?php echo $this->getRssLink() ?>" class="link-rss"><?php echo $this->__('Subscribe to RSS Feed') ?></a>
+    <?php endif; ?>
+    <h1><?php echo $_helper->categoryAttribute($_category, $_category->getName(), 'name') ?></h1>
+</div>
+
+<?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+
+<?php if($_imgUrl): ?>
+    <?php echo $_imgHtml ?>
+<?php endif; ?>
+
+<?php if($_description=$this->getCurrentCategory()->getDescription()): ?>
+    <div class="category-description std">
+        <?php echo $_helper->categoryAttribute($_category, $_description, 'description') ?>
+    </div>
+<?php endif; ?>
+    
+<?php $catModel = Mage::getModel('categoryview/category'); ?>
+
+<?php if($this->getCategoryStatus() && $catModel->isDisplaySub($this->getCurrentCategory()->getId(), $displayList)): ?>    
+        
+    <?php if($this->isContentMode() || $this->isMixedMode()): ?>
+        <?php echo $this->getCmsBlockHtml() ?>
+    <?php endif; ?>
+    
+    
+    <?php $topChildren = $this->getCurrentCategory()->getChildrenCategories(); ?>
+    
+    <?php $viewType = $this->getViewType(); ?>
+    <?php //grid view ?>
+    <?php if($viewType == 'grid'): ?>
+        <?php $columnLimit = $this->getGridColumnCount(); ?>
+        <?php $columnCount = 0; ?>
+    <ul class="cat-view-item-grid">
+        <?php foreach($topChildren as $topC): ?>
+            <?php if($columnCount == $columnLimit): ?>
+                <li class="cat-last-list-item"></li>
+                </ul>
+                <ul class="cat-view-item-grid">
+                <?php $columnCount = 0; ?>
+            <?php endif; ?>
+            <li class="cat-item">
+            <?php $topChild = Mage::getModel('catalog/category')->load($topC->getId()); ?>
+            <?php if($this->getNamePosition()): ?>
+                <span class="category-name"><a href="<?php echo $topChild->getUrl(); ?>"><?php echo $topChild->getName(); ?></a></span>
+            <?php endif; ?>
+            <?php if($this->getImageStatus()): ?>
+                <?php if($this->getImageType() == 'image'): ?>
+                	<?php if(!($catImg = $topChild->getImageUrl())) $catImg = Mage::getModel('catalog/product')->getSmallImageUrl($this->getImageWidth(), $this->getImageHeight()); ?>
+                    <div style="width: <?php echo $this->getImageWidth(); ?>px; height: <?php echo $this->getImageHeight(); ?>px;">
+                       <a href="<?php echo $topChild->getUrl(); ?>"><img src="<?php echo $catImg; ?>" width="<?php echo $this->getImageWidth(); ?>" height="<?php echo $this->getImageHeight(); ?>" /></a>
+                    </div>
+                <?php elseif($this->getImageType() == 'thumbnail'): ?>
+                	<?php if(!($catImg = $this->getThumbnailImageUrl($topChild))) $catImg = Mage::getModel('catalog/product')->getSmallImageUrl($this->getImageWidth(), $this->getImageHeight()); ?>
+                    <div style="width: <?php echo $this->getImageWidth(); ?>px; height: <?php echo $this->getImageHeight(); ?>px;">
+                       <a href="<?php echo $topChild->getUrl(); ?>"><img src="<?php echo $catImg; ?>" width="<?php echo $this->getImageWidth(); ?>" height="<?php echo $this->getImageHeight(); ?>" /></a>
+                    </div>
+                <?php endif; ?>
+            
+            <?php endif; ?>
+            <?php if(!$this->getNamePosition()): ?>
+                <span class="category-name"><a href="<?php echo $topChild->getUrl(); ?>"><?php echo $topChild->getName(); ?></a></span>
+            <?php endif; ?>
+            
+
+            <?php if($displayList): ?>
+                <?php $subLimit = $this->getSubListLimit(); ?>
+                <?php $subCount = 0; ?>
+                <ul>
+                    <?php foreach($topChild->getChildrenCategories() as $subC): ?>
+                        <?php if($subLimit && $subCount == $subLimit)break; ?>
+                        <li class="cat-sub-item"><a href="<?php echo $subC->getUrl(); ?>"><?php echo $subC->getName(); ?></a></li>
+                        <?php $subCount++; ?>
+                    <?php endforeach; ?>
+                </ul>
+                
+            <?php endif; ?>
+            </li>
+            <?php $columnCount++; ?>
+        <?php endforeach; ?>
+        <li class="cat-last-list-item"></li>
+    </ul>
+    <?php //list view ?>
+    <?php elseif($viewType == 'list'): ?>
+    
+    <ul class="cat-view-item-list">
+        <?php foreach($topChildren as $topC): ?>
+        <li class="cat-item">
+            <?php $topChild = Mage::getModel('catalog/category')->load($topC->getId()); ?>
+            <?php if($this->getImageStatus()): ?>
+                <div class="cat-view-list-image">
+                <?php if($this->getImageType() == 'image'): ?>
+                	<?php if(!($catImg = $topChild->getImageUrl())) $catImg = Mage::getModel('catalog/product')->getSmallImageUrl($this->getImageWidth(), $this->getImageHeight()); ?>
+                    <a href="<?php echo $topChild->getUrl(); ?>"><img src="<?php echo $catImg; ?>" width="<?php echo $this->getImageWidth(); ?>" height="<?php echo $this->getImageHeight(); ?>" /></a>
+                <?php elseif($this->getImageType() == 'thumbnail'): ?>
+                	<?php if(!($catImg = $this->getThumbnailImageUrl($topChild))) $catImg = Mage::getModel('catalog/product')->getSmallImageUrl($this->getImageWidth(), $this->getImageHeight()); ?>
+                    <a href="<?php echo $topChild->getUrl(); ?>"><img src="<?php echo $catImg; ?>" width="<?php echo $this->getImageWidth(); ?>" height="<?php echo $this->getImageHeight(); ?>" /></a>
+                <?php endif; ?>
+                </div>
+            <?php endif; ?>
+                <div class="cat-view-list-info" style="width:<?php echo $this->getRightContWidth(); ?>px;">
+                    <div class="category-name"><a href="<?php echo $topChild->getUrl(); ?>"><?php echo $topChild->getName(); ?></a></div>
+                <?php if($this->getDescriptionStatus()): ?> 
+                    <div class="category-description">
+                        <?php echo $topChild->getDescription(); ?>
+                    </div>
+                <?php endif; ?>         
+                <?php if($displayList): ?>
+                    <?php $subLimit = $this->getSubListLimit(); ?>
+                    <?php $subCount = 0; ?>
+                    <ul>
+                        <?php foreach($topChild->getChildrenCategories() as $subC): ?>
+                            <?php if($subLimit && $subCount == $subLimit)break; ?>
+                            <li class="cat-sub-item"><a href="<?php echo $subC->getUrl(); ?>"><?php echo $subC->getName(); ?></a></li>
+                            <?php $subCount++; ?>
+                        <?php endforeach; ?>
+                    </ul>
+                    
+                <?php endif; ?>
+                </div>
+            
+                <div class="cat-view-list-clear"></div>
+        </li>
+        <?php endforeach; ?>
+    </ul>
+
+
+
+
+    <?php endif; ?>
+    
+    <?php if(!$this->isContentMode() ): ?>
+        <?php $excludeList = explode(',',$this->getExcludeProducts()); ?>
+        <?php if(!in_array($this->getCurrentCategory()->getId(), $excludeList)): ?>
+            <?php echo $this->getProductListHtml() ?>
+        <?php endif; ?>
+    <?php endif; ?>
+    
+    
+<?php elseif($this->isContentMode()): ?>
+    <?php echo $this->getCmsBlockHtml() ?>
+
+<?php elseif($this->isMixedMode()): ?>
+    <?php echo $this->getCmsBlockHtml() ?>
+    <?php echo $this->getProductListHtml() ?>
+
+<?php else: ?>
+    <?php echo $this->getProductListHtml() ?>
+<?php endif; ?>

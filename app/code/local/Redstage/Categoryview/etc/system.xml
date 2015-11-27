@@ -1,0 +1,237 @@
+<?xml version="1.0"?>
+<config>
+    <tabs>
+        <redstage>
+            <label>Redstage</label>
+            <sort_order>195</sort_order>
+        </redstage>
+    </tabs>
+   <sections>
+   
+    <categoryview translate="label" module="categoryview">
+            <label>Category View</label>
+            <tab>redstage</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>302</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <settings translate="label">
+                    <label>Settings</label>
+                    <expanded>1</expanded>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>0</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <fields>
+                        <enabled translate="label comment">
+                            <label>Enabled</label>
+                            <sort_order>1</sort_order>
+                            <comment>Enable this module?</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <show_in_default>1</show_in_default>
+                        </enabled>
+                        
+                        
+                 
+                    </fields>
+                </settings>
+                
+                <appearance translate="label">
+                    <label>Appearance</label>
+                    <expanded>1</expanded>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <fields>
+                        
+                        <viewtype>
+                            <label>Select View</label>
+                            <sort_order>0</sort_order>
+                            <frontend_type>select</frontend_type>
+                            <source_model>categoryview/source_listType</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </viewtype>
+                        
+                        <colcount>
+                            <label>Grid Column Count</label>
+                            <comment>Numeric Value. Number of columns in grid view.</comment>
+                            <sort_order>1</sort_order>
+                            <backend_model>categoryview/admin_numeric</backend_model>
+                            <frontend_type>text</frontend_type>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </colcount>
+                        
+                        <picture translate="label comment">
+                            <label>Display Category Picture</label>
+                            <sort_order>2</sort_order>
+                            <comment>Show the category picture in the listing?</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </picture>
+                        
+                        <pictype>
+                            <label>Use Category Image or Thumbnail</label>
+                            <sort_order>3</sort_order>
+                            <comment>If category picture is enabled, select which to use.</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>categoryview/source_picType</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </pictype>
+                        
+                        <namepos>
+                            <label>Name Above Picture</label>
+                            <sort_order>4</sort_order>
+                            <comment>Category name displays below picture by default.</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </namepos>
+                        
+                        <desc>
+                            <label>Show Description</label>
+                            <sort_order>5</sort_order>
+                            <comment>List view only. </comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </desc>
+                        
+                    </fields>
+                </appearance>
+                
+                <styles translate="label">
+                    <label>Styles</label>
+                    <expanded>1</expanded>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>2</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <fields>
+
+                        <img_w>
+                            <label>Image Width</label>
+                            <comment>Numeric Value in px. Width of category image.</comment>
+                            <sort_order>1</sort_order>
+                            <backend_model>categoryview/admin_numeric</backend_model>
+                            <frontend_type>text</frontend_type>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </img_w>
+                        
+                        <img_h>
+                            <label>Image Height</label>
+                            <comment>Numeric Value in px. Height of category image. If not specified, width will be used.</comment>
+                            <sort_order>2</sort_order>
+                            <backend_model>categoryview/admin_numeric</backend_model>
+                            <frontend_type>text</frontend_type>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </img_h>
+                        
+                        <rightcont>
+                            <label>Right Container</label>
+                            <comment>List mode only. Numeric Value in px. Width of info container (to the right of the image).</comment>
+                            <sort_order>3</sort_order>
+                            <backend_model>categoryview/admin_numeric</backend_model>
+                            <frontend_type>text</frontend_type>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </rightcont>
+                        
+                    </fields>
+                </styles>
+                <display translate="label">
+                    <label>Display</label>
+                    <expanded>1</expanded>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>3</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <fields>
+                        
+                        <toplevel>
+                            <label>Display Sub Categories for Top Level Categories</label>
+                            <sort_order>1</sort_order>
+                            <comment>Make all top level categories display sub categories</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                       </toplevel>
+                                               
+                        <subcats>
+                            <label>List Sub Categories of Sub Categories</label>
+                            <sort_order>3</sort_order>
+                            <comment>List sub categories?</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </subcats>
+                        
+                        <thirdcat_beyond_level>
+                        	<label>Display Sub Categories for 3rd Level &amp; Beyond</label>
+                            <sort_order>4</sort_order>
+                            <comment>Make all 3rd level &amp; beyond categories display sub categories</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </thirdcat_beyond_level>
+                        
+                        <thirdcat_beyond_subcats>
+                        	<label>List Sub Categories of 3rd Level &amp; Beyond</label>
+                            <sort_order>5</sort_order>
+                            <comment>List sub categories for categories beyond 3rd level?</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </thirdcat_beyond_subcats>
+                        
+                        <sublimit>
+                            <label>Sub Category's Sub Categories List Limit</label>
+                            <comment>Numeric Value. Limit the number of sub categories under each sub category displayed. Leave blank for no limit.</comment>
+                            <sort_order>6</sort_order>
+                            <backend_model>categoryview/admin_numeric</backend_model>
+                            <frontend_type>text</frontend_type>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </sublimit>
+                        
+                       
+                        
+                    </fields>
+                </display>
+                
+                
+            </groups>
+        </categoryview>
+        
+    </sections>
+</config>

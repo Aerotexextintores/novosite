@@ -1,0 +1,14 @@
+.cat-view-item-grid .cat-item{
+	float:left;
+	width:138px;
+	padding: 12px 10px 80px;
+}
+.cat-view-item-grid .cat-item span.category-name a{color:#000; font-size:16px;}
+
+.cat-view-list-clear, .cat-view-item-grid .cat-last-list-item{clear:both;}
+
+.cat-view-item-list .cat-item{padding:12px 10px; }
+.cat-view-list-image{float:left;}
+.cat-view-list-info{float:left;width:300px;padding-left:10px;}
+.cat-view-list-info .category-name a{color:#000; font-size:16px;}
+

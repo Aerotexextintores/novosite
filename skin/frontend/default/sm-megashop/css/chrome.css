@@ -1,0 +1,11 @@
+.product-view .product-img-box .more-views .next:before, .product-view .product-img-box .more-views .prev:before{
+	top: -1px;
+}
+.product-view .product-img-box .more-views .prev:before{
+	left: 9px;
+}
+body .content-bottom-7 .sm-categoryslider .categoryslider-content .item-cat-image a:hover:before{
+	-moz-transition: all 0s ease-in 0s !important;
+	-webkit-transition: all 0s ease-in 0s !important;
+	transition: all 0s ease-in 0s !important;
+}

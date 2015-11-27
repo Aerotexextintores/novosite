@@ -1,0 +1,133 @@
+<?xml version="1.0"?>
+<config>
+	<global>
+		<models>
+            <categories>
+                <class>Smartaddons_Categories_Model</class>
+            </categories>
+        </models>
+		<blocks>
+            <categories>
+                <class>Smartaddons_Categories_Block</class>
+            </categories>            		
+        </blocks>				
+		<helpers>
+            <categories>
+                <class>Smartaddons_Categories_Helper</class>
+            </categories>
+        </helpers>
+        <resources>
+        	<categories_setup>
+        		<setup>
+        			<module>Smartaddons_Categories</module>
+        		</setup>
+        	</categories_setup>
+        </resources>
+	</global>
+	<frontend>
+        <routers>
+			<categories>
+                <use>standard</use>
+                <args>
+                    <module>Smartaddons_Categories</module>
+                    <frontName>categories</frontName>
+                </args>
+            </categories>
+        </routers>
+		<layout>
+            <updates>
+                <categories module="Smartaddons_Categories">
+					<file>smartaddons/categories.xml</file>
+                </categories>
+            </updates>
+        </layout>
+        <translate>
+      		<modules>
+          		<Smartaddons_Categories>
+                     <files>
+                          <default>Smartaddons_Categories.csv</default>
+                     </files>
+                </Smartaddons_Categories>
+            </modules>
+        </translate>
+	</frontend>
+	<adminhtml>
+        <translate>
+      		<modules>
+          		<Smartaddons_Categories>
+                     <files>
+                          <default>Smartaddons_Categories.csv</default>
+                     </files>
+                </Smartaddons_Categories>
+            </modules>
+        </translate>
+		<acl>
+			<resources>
+				<admin>
+					<children>
+						<system>
+							<children>
+								<config>
+									<children>										
+										<categories_cfg translate="title" module="categories">
+											<title>SM Categories Settings</title>
+										</categories_cfg>
+									</children>
+								</config>
+							</children>
+						</system>
+					</children>
+				</admin>
+			</resources>
+		</acl>
+	</adminhtml>
+	<default>
+        <categories_cfg>
+        	<general>
+                <isenabled>1</isenabled>
+                <title>SM Categories</title>
+            </general>
+			<module_setting>
+				<module_width>650</module_width>
+				<theme>theme1</theme>
+			</module_setting>			
+            <product_selection>
+            	<product_category>3</product_category>
+				<category_columns>2</category_columns>
+            	<limit_sub_category>5</limit_sub_category>
+            </product_selection>
+				
+			<product_display_setting>
+				<category_image_disp>1</category_image_disp>
+				<category_image_linkable>1</category_image_linkable>
+				<category_image_width>100</category_image_width>
+				<category_image_height>100</category_image_height>
+
+				<category_sub_image_disp>1</category_sub_image_disp>
+				<category_sub_image_linkable>1</category_sub_image_linkable>
+				<category_sub_image_width>50</category_sub_image_width>
+				<category_sub_image_height>50</category_sub_image_height>
+				
+				<category_title_disp>1</category_title_disp>
+				<category_title_linkable>1</category_title_linkable>
+				<category_title_color>#000000</category_title_color>
+				<category_title_max_characters>20</category_title_max_characters>
+
+				<category_sub_title_disp>1</category_sub_title_disp>
+				<category_sub_title_linkable>1</category_sub_title_linkable>
+				<category_sub_title_color>#000000</category_sub_title_color>
+				<category_sub_title_max_characters>20</category_sub_title_max_characters>
+				
+				<show_total_articles>1</show_total_articles>
+				<tab_event>click</tab_event>
+				<product_links_target>_self</product_links_target>
+
+			</product_display_setting>
+            <advanced>
+            	<include_jquery>1</include_jquery>
+            	<pretext></pretext>
+            	<posttext></posttext>
+            </advanced>
+        </categories_cfg>
+    </default>
+</config>

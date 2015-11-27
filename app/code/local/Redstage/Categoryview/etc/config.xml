@@ -1,0 +1,110 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Redstage_Categoryview>
+            <version>0.1.0</version>
+        </Redstage_Categoryview>
+    </modules>
+
+    <!-- Might not be necessary -->
+    <admin>
+        <routers>
+            <categoryview>
+                <use>admin</use>
+                <args>
+                    <module>Redstage_Categoryview</module>
+                    <frontName>categoryview</frontName>
+                </args>
+            </categoryview>
+        </routers>
+    </admin>
+        <!-- Might not be necessary ^^^ -->
+ 
+    
+    <global>
+        
+        <blocks>
+            <categoryview>
+                <class>Redstage_Categoryview_Block</class>
+            </categoryview>
+        </blocks>
+        <helpers>
+            <categoryview>
+                <class>Redstage_Categoryview_Helper</class>
+            </categoryview>
+        </helpers>
+        <models>
+            <categoryview>
+                <class>Redstage_Categoryview_Model</class>
+            </categoryview>
+        </models>
+        
+        <resources>
+            <categoryview_setup>
+                <setup>
+                    <module>Redstage_Categoryview</module>
+                    <class>Redstage_Categoryview_Model_Setup</class>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </categoryview_setup>
+            <categoryview_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </categoryview_write>
+            <categoryview_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </categoryview_read>
+        </resources>
+        
+    </global>
+    
+    <frontend>
+        <layout>
+            <updates>
+                <categoryview>
+                    <file>categoryview.xml</file>
+                </categoryview>
+            </updates>
+        </layout>
+    </frontend>
+    
+    
+    <default>
+        <categoryview>
+            
+            
+            <settings>
+                <enabled>1</enabled>
+            </settings>
+            
+            <appearance>
+                <viewtype>grid</viewtype>
+                <colcount>3</colcount>
+                <picture>1</picture>
+                <pictype>image</pictype>
+                <namepos>0</namepos>
+                <desc>1</desc>
+            </appearance>
+            
+            <styles>
+                <img_w>138</img_w>
+            </styles>
+            
+            <display>
+                <toplevel>1</toplevel>
+                <subcats>0</subcats>
+                <thirdcat_beyond_level>1</thirdcat_beyond_level>
+                <thirdcat_beyond_subcats>0</thirdcat_beyond_subcats>
+            </display>
+            
+          
+        </categoryview>
+    </default>
+
+</config>
+

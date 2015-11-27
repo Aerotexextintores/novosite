@@ -1,0 +1,1 @@
+http://frete.sisfrete.com.br/cotacao/calc_sisfrete01.php?token=A8ED5BFE2022ADCDF4524A8E3FC082FC&envio=1&dados_destinatario=1&cpf_cnpj=83712607768&pessoa=f&nome=JoaodaSilva&endereco=RuaHolanda&numero=587&bairro=Centro&cep=17600440&email=teste@teste.com
