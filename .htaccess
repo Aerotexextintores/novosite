@@ -31,7 +31,7 @@
 ############################################
 ## adjust memory limit
 
-#   php_value memory_limit 64M
+#    php_value memory_limit 64M
     php_value memory_limit 256M
     php_value max_execution_time 18000
 
@@ -96,28 +96,6 @@
 
     # Make sure proxies don't deliver the wrong content
     #Header append Vary User-Agent env=!dont-vary
-
-
-    ## COMPACTAÇÃO DE SAÍDA - 25-11-2015
-
-    Addtype Application/X-Font-Ttf Ttf
-    Addtype Application/X-Font-Woff Woff
-    Addoutputfilterbytype Deflate Text/Html Text/Plain Text/Xml Text/Css Text/Javascript
-    Addoutputfilterbytype Deflate Application/Xml Application/Xhtml+Xml Application/Rss+Xml
-    #AddOutputFilterByType Deflate Application/Javascript Application/X-Javascript
-    #AddOutputFilterByType Deflate Application/X-Httpd-Php
-    #AddOutputFilterByType Deflate Application/X-Font-Ttf
-    #AddOutputFilterByType Deflate Application/X-Font-Woff
-    #AddOutputFilterByType Deflate Image/Jpeg
-    #AddOutputFilterByType Deflate Image/Jpg
-    #AddOutputFilterByType Deflate Image/Png
-    Browsermatch ^Mozilla/4 Gzip-Only-Text/Html
-    Browsermatch ^Mozilla/4\.0[678] No-Gzip
-    Browsermatch \bMSI[E] !no-gzip !gzip-only-text/html
-    #SetEnvIfNoCase Request_Uri \.(?:gif|jpe?g|png)$ No-Gzip Dont-Vary
-    Setenvifnocase Request_Uri \.(?:exe|t?gz|zip|bz2|sit|rar)$ No-Gzip Dont-Vary
-    Setenvifnocase Request_Uri \.(?:pdf|doc)$ No-Gzip Dont-Vary
-    Setenvifnocase Request_Uri \.(?:avi|mov|mp3|mp4|rm)$ No-Gzip Dont-Vary 
 
 </IfModule>
 
@@ -213,17 +191,6 @@ RewriteRule .* - [G]
 ## http://developer.yahoo.com/performance/rules.html#expires
 
     ExpiresDefault "access plus 1 year"
-    ExpiresActive on
-    ExpiresByType image/jpg "access plus 20 days"
-    ExpiresByType image/png "access plus 20 days"
-    ExpiresByType image/gif "access plus 20 days"
-    ExpiresByType image/jpeg "access plus 20 days"
-    ExpiresByType text/css "access plus 10 days"
-    ExpiresByType image/x-icon "access plus 1 month"
-    ExpiresByType text/javascript "access plus 2 week"
-    ExpiresByType application/x-javascript "access plus 2 week"
-    ExpiresByType application/javascript "access plus 2 week"
-    ExpiresByType application/x-font-woff "access plus 2 week" 
 
 </IfModule>
 
